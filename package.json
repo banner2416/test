@@ -1,8 +1,22 @@
 {
+  "name": "my-workspace",
   ...
   "scripts": {
-    "build": "next build",
-    "lint": "eslint ./src",
-    "test": "lscpu"
+    "build": "nx next:build",
+    "lint": "nx eslint:lint",
+    "test": "nx exec -- node ./run-tests.js"
+  },
+  ...
+  "nx": {
+    "targets": {
+      "test": {
+        "cache": "true",
+        "inputs": [
+          "default",
+          "^default"
+        ],
+        "outputs": []
+      }
+    }
   }
 }
